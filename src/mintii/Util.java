@@ -1,10 +1,10 @@
-package starter;
+package mintii;
 
 import battlecode.common.Direction;
 import battlecode.common.GameActionException;
 
-import static chet.RobotPlayer.myRand;
-import static chet.RobotPlayer.rc;
+import static mintii.RobotPlayer.myRand;
+import static mintii.RobotPlayer.rc;
 
 /**
  * Created by clintz on 1/17/2017.

@@ -1,15 +1,15 @@
-package starter;
+package mintii;
 
 import battlecode.common.GameActionException;
 import battlecode.common.RobotController;
 
 import java.util.Random;
 
-import static starter.Archon.runArchon;
-import static starter.Gardener.runGardener;
-import static starter.LumberJack.runLumberjack;
-import static starter.Scout.runScout;
-import static starter.Soldier.runSoldier;
+import static mintii.Archon.runArchon;
+import static mintii.Gardener.runGardener;
+import static mintii.LumberJack.runLumberjack;
+import static mintii.Scout.runScout;
+import static mintii.Soldier.runSoldier;
 
 public strictfp class RobotPlayer {
     static RobotController rc;

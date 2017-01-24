@@ -1,13 +1,13 @@
-package starter;
+package mintii;
 
 import battlecode.common.GameActionException;
 
 /**
  * Created by clintz on 1/20/2017.
  */
-public class Gardener {
+public class Soldier {
 
-    static void runGardener() throws GameActionException{
+    static void runSoldier() throws GameActionException{
         while (true){
 
         }

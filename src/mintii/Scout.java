@@ -1,13 +1,13 @@
-package starter;
+package mintii;
 
 import battlecode.common.GameActionException;
 
 /**
  * Created by clintz on 1/20/2017.
  */
-public class LumberJack {
+public class Scout {
 
-    static void runLumberjack() throws GameActionException{
+    static void runScout() throws GameActionException{
         while (true){
 
         }

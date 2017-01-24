@@ -1,13 +1,13 @@
-package starter;
+package mintii;
 
 import battlecode.common.GameActionException;
 
 /**
  * Created by clintz on 1/20/2017.
  */
-public class Archon {
+public class LumberJack {
 
-    static void runArchon() throws GameActionException{
+    static void runLumberjack() throws GameActionException{
         while (true){
 
         }
