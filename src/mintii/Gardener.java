@@ -2,7 +2,10 @@ package mintii;
 
 import battlecode.common.*;
 
+import static battlecode.common.RobotType.LUMBERJACK;
+import static battlecode.common.RobotType.SOLDIER;
 import static mintii.RobotPlayer.rc;
+import static mintii.Util.*;
 
 /**
  * Created by clintz on 1/20/2017.
@@ -32,23 +35,24 @@ public class Gardener {
         MapLocation hireLoc = rc.getLocation().add((GameConstants.BULLET_TREE_RADIUS + .045f) * buildLocationModifier, 5);
         Direction hireDir = rc.getLocation().directionTo(hireLoc);
         rc.setIndicatorLine(rc.getLocation(), hireLoc, 0, 0, 0);
+       if(rc.getRoundNum() % 100 == 0){
+            hireScout(hireDir);
+        } else if (rc.getRoundNum() % 5 == 0 && rc.getRoundNum() < 450) {
+            hireLumberJack(hireDir);
+        } else if (rc.getRoundNum() % 5 == 0) {
+            hireSoldier(hireDir);
+        }
         if (rc.canInteractWithTree(ml)) {
-            if (rc.getRoundNum() % 5 == 0 && rc.getRoundNum() < 500) {
-                //                hireLumberJack(hireDir);
-            } else if (rc.getRoundNum() % 7 == 0 || rc.getRoundNum() % 5 == 0) {
-                //                hireSoldier(hireDir);
-            }
             if (rc.canWater(ml)) {
                 rc.water(ml);
-                treeToAttendTo++;
+                donateBullets();
             }
         } else if (rc.canPlantTree(plantDir)) {
             rc.plantTree(plantDir);
-            treeToAttendTo++;
         }
+        treeToAttendTo++;
         if (treeToAttendTo > 4) {
             treeToAttendTo = 0;
         }
-
     }
 }

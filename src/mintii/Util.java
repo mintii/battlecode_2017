@@ -1,7 +1,6 @@
 package mintii;
 
-import battlecode.common.Direction;
-import battlecode.common.GameActionException;
+import battlecode.common.*;
 
 import static mintii.RobotPlayer.myRand;
 import static mintii.RobotPlayer.rc;
@@ -28,10 +27,26 @@ public class Util {
      * @throws GameActionException
      */
     static boolean tryMove(Direction dir) throws GameActionException {
+
         return tryMove(dir,20,3);
     }
 
+    static void donateBullets() throws GameActionException {
+        if(rc.getTeamBullets() > 250){
+            rc.donate(100);
+        }
+    }
 
+    static void moveAway() throws GameActionException {
+        MapLocation location = rc.getLocation();
+        RobotInfo[] rInformation = rc.senseNearbyRobots(-1, rc.getTeam());
+        if(rInformation.length > 0){
+            // There's at least one robot near me, and I want to move away from them.
+            if(rc.canMove(rc.getLocation().directionTo(rInformation[0].getLocation()).opposite())){
+                rc.move(rc.getLocation().directionTo(rInformation[0].getLocation()).opposite());
+            }
+        }
+    }
     /**
      * Attempts to move in a given direction, while avoiding small obstacles direction in the path.
      *
@@ -69,5 +84,24 @@ public class Util {
 
         // A move never happened, so return false.
         return false;
+    }
+
+
+    static void hireScout(Direction hireDir) throws GameActionException {
+        if (rc.canBuildRobot(RobotType.SCOUT, hireDir)) {
+            rc.buildRobot(RobotType.SCOUT, hireDir);
+        }
+    }
+
+    static void hireLumberJack(Direction hireDir) throws GameActionException {
+        if (rc.canBuildRobot(RobotType.LUMBERJACK, hireDir)){
+            rc.buildRobot(RobotType.LUMBERJACK, hireDir);
+        }
+    }
+
+    static void hireSoldier(Direction hireDir) throws GameActionException {
+        if (rc.canBuildRobot(RobotType.SOLDIER, hireDir)){
+            rc.buildRobot(RobotType.SOLDIER, hireDir);
+        }
     }
 }

@@ -6,6 +6,7 @@ import battlecode.common.GameActionException;
 import battlecode.common.MapLocation;
 
 import static mintii.RobotPlayer.rc;
+import static mintii.Util.moveAway;
 import static mintii.Util.randomDirection;
 import static mintii.Util.tryMove;
 
@@ -34,7 +35,7 @@ public class Archon {
                 // Randomly attempt to build a gardener in this direction
                 if (rc.canHireGardener(dir) && Math.random() < .01) {
                     rc.hireGardener(dir);
-                    System.out.println(rc.getLocation());
+                    moveAway();
                 }
 
                 // Move randomly
