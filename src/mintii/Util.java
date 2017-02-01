@@ -9,11 +9,6 @@ import static mintii.RobotPlayer.rc;
  * Created by clintz on 1/17/2017.
  */
 public class Util {
-    public static void wander() throws GameActionException {
-        Direction dir = randomDirection();
-        tryMove(dir);
-    }
-
 
     public static Direction randomDirection() {
         return(new Direction(myRand.nextFloat()*2*(float)Math.PI));
@@ -29,6 +24,11 @@ public class Util {
     static boolean tryMove(Direction dir) throws GameActionException {
 
         return tryMove(dir,20,3);
+    }
+
+    public static void wander() throws GameActionException {
+        Direction dir = randomDirection();
+        tryMove(dir);
     }
 
     static void donateBullets() throws GameActionException {
