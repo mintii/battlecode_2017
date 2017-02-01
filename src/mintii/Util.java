@@ -33,7 +33,7 @@ public class Util {
 
     static void donateBullets() throws GameActionException {
         if(rc.getTeamBullets() > 250){
-            rc.donate(100);
+            rc.donate(150);
         }
     }
 

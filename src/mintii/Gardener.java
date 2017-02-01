@@ -35,7 +35,7 @@ public class Gardener {
         MapLocation hireLoc = rc.getLocation().add((GameConstants.BULLET_TREE_RADIUS + .045f) * buildLocationModifier, 5);
         Direction hireDir = rc.getLocation().directionTo(hireLoc);
         rc.setIndicatorLine(rc.getLocation(), hireLoc, 0, 0, 0);
-       if(rc.getRoundNum() % 100 == 0){
+       if(rc.getRoundNum() % 120 == 0){
             hireScout(hireDir);
         } else if (rc.getRoundNum() % 5 == 0 && rc.getRoundNum() < 450) {
             hireLumberJack(hireDir);
